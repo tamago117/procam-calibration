@@ -131,6 +131,12 @@ def calibrate(dirnames, gc_fname_lists, proj_shape, chess_shape, chess_block_siz
         white_img = imgs.pop()
 
         res, cam_corners = cv2.findChessboardCorners(white_img, chess_shape)
+        #debug
+        #visualize corners
+        # cv2.drawChessboardCorners(white_img, chess_shape, cam_corners, res)
+        # cv2.resize(white_img, (0,0), fx=0.1, fy=0.1)
+        # cv2.imshow('corners', white_img)
+        # cv2.waitKey(1500)
         if not res:
             print('Error : chessboard was not found in \'' +
                   gc_filenames[-2] + '\'')

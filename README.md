@@ -20,7 +20,7 @@ Open your terminal and type the following command.
 python gen_graycode_imgs.py <projector_pixel_height> <projector_pixel_width> [-graycode_step <graycode_step(default=1)>]
 
 # example
-python gen_graycode_imgs.py 768 1024 -graycode_step 1
+python gen_graycode_imgs.py 800 1280 -graycode_step 1
 ```
 
 Generated images will be stored in `./graycode_pattern/`.
@@ -44,6 +44,10 @@ Captured images must be saved as `./capture_*/graycode_*.(png/jpg)`.
    </tr>
 </table>
 
+```
+python cap_images.py
+```
+
 ### Step 3 : Calibrate projector & camera parameters
 
 After saving the captured images, run the following command.
@@ -52,7 +56,7 @@ After saving the captured images, run the following command.
 python calibrate.py <projector_pixel_height> <projector_pixel_width> <num_chess_corners_vert> <num_chess_corners_hori> <chess_block_size> <graycode_step> [-black_thr <black_thr(default=40)>] [-white_thr <white_thr(default=5)>][-camera <camera_parameter_json>]
 
 # example (you can test this command in the sample_data directory)
-python ../calibrate.py 768 1024 9 7 75 1 -black_thr 40 -white_thr 5
+python ../calibrate.py 800 1280 10 7 75 1 -black_thr 40 -white_thr 5 -camera ../camera_parameters.json
 ```
 
 `chess_block_size` means the length (mm cm m) of a block on the chessboard.
